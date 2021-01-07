@@ -1,4 +1,4 @@
-export interface Repo {
+export interface Repos {
   total_count: number;
   incomplete_results: boolean;
   items: [

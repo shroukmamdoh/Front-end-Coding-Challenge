@@ -4,13 +4,16 @@ import { HomeComponent } from './components/home/home.component';
 import { RepoComponent } from './components/repo/repo.component';
 import { ReposListComponent } from './components/repos-list/repos-list.component';
 import { LostComponent } from './components/lost/lost.component';
+import { RouterModule } from '@angular/router';
+import { routes } from './home.routing';
 
 
 
 @NgModule({
   declarations: [HomeComponent, ReposListComponent, RepoComponent, LostComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild(routes)
   ],
   exports: [HomeComponent]
 })

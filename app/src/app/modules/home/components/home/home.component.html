@@ -1,1 +1,3 @@
-<p>home works!</p>
+<div class="home-page" *ngIf="reposList">
+  <app-repos-list [reposList]="reposList.items"></app-repos-list>
+</div>

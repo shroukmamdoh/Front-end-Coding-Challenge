@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-repos-list',
   templateUrl: './repos-list.component.html',
-  styleUrls: ['./repos-list.component.scss']
+  styleUrls: ['./repos-list.component.scss'],
 })
 export class ReposListComponent implements OnInit {
+  @Input()
+  reposList;
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

@@ -1,1 +1,5 @@
-<p>repo-list works!</p>
+<div class="repo-list">
+  <div class="repo-item" *ngFor="let repo of reposList">
+    <app-repo [repo]="repo"></app-repo>
+  </div>
+</div>

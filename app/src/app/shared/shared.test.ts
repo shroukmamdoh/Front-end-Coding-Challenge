@@ -1,6 +1,29 @@
 import { Repos } from '../interfaces/repo.interface';
+import { ReposListComponent } from '../modules/home/components/repos-list/repos-list.component';
 
-export const TEST_ROUTES = [];
+export const TEST_ROUTES = [
+  {
+    path: '',
+    children: [
+      {
+        path: 'recent-repo',
+        component: ReposListComponent,
+      },
+      {
+        path: '',
+        redirectTo: 'recent-repo',
+        pathMatch: 'full',
+      },
+      {
+        path: '**',
+        redirectTo: 'recent-repo',
+        pathMatch: 'full',
+      },
+    ],
+  },
+
+  { path: '**', redirectTo: '' },
+];
 
 export const TEST_REPO: Repos = {
   total_count: 35537472,

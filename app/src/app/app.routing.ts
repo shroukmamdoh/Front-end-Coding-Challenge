@@ -8,17 +8,12 @@ export const AppRoutes: Routes = [
       import('./modules/home/home.module').then((m) => m.HomeModule),
   },
   {
-    path: '404',
+    path: 'lost',
     component: LostComponent,
   },
   {
     path: '**',
-    redirectTo: '404',
+    redirectTo: 'lost',
     pathMatch: 'full',
-  },
-  {
-    path: '',
-    redirectTo: '404',
-    pathMatch: 'full',
-  },
+  }
 ];

@@ -1,0 +1,26 @@
+@import "../../../../styles/variables";
+@import "../../../../styles/mixins";
+.default-content {
+  height: 93.9vh;
+  text-align: center;
+  padding-top: 180px;
+  p {
+    @include base-font(26px, 400, 24px);
+  }
+  button {
+    background-color: $main-color;
+    color: $primary-layout-background;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 24px;
+    cursor: pointer;
+    @include base-font(18px, 400, 18px);
+    text-transform: capitalize;
+    &:focus {
+      outline-color: $primary-layout-background;
+    }
+    &:hover {
+      background-color: $light-main-color;
+    }
+  }
+}

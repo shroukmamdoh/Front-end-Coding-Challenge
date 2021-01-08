@@ -1,28 +1,31 @@
 import { Repos } from '../interfaces/repo.interface';
+import { LostComponent } from '../modules/home/components/lost/lost.component';
 import { ReposListComponent } from '../modules/home/components/repos-list/repos-list.component';
 
 export const TEST_ROUTES = [
-  // {
-  //   path: '',
-  //   children: [
-  //     {
-  //       path: 'recent-repo',
-  //       component: ReposListComponent,
-  //     },
-  //     {
-  //       path: '',
-  //       redirectTo: 'recent-repo',
-  //       pathMatch: 'full',
-  //     },
-  //     {
-  //       path: '**',
-  //       redirectTo: 'recent-repo',
-  //       pathMatch: 'full',
-  //     },
-  //   ],
-  // },
-
-  // { path: '**', redirectTo: '' },
+  {
+    path: '',
+    children: [
+      {
+        path: 'recent-repositories',
+        component: ReposListComponent,
+      },
+      {
+        path: '',
+        redirectTo: 'recent-repositories',
+        pathMatch: 'full',
+      },
+    ],
+  },
+  {
+    path: 'lost',
+    component: LostComponent,
+  },
+  {
+    path: '**',
+    redirectTo: 'lost',
+    pathMatch: 'full',
+  },
 ];
 
 export const TEST_REPO: Repos = {

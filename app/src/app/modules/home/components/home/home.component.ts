@@ -8,16 +8,44 @@ import { RepService } from '../../services/repo.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  reposList: Repos;
+  reposList = [];
   page = 1;
+  currentPage = 0;
+  lastPage;
+  direction = 'down';
+  count = 0;
+  stopFlag = false;
   constructor(private reposService: RepService) {}
 
   ngOnInit(): void {
-    this.reposService.getRepos(this.page).subscribe(
+    this.loadNextPage();
+  }
+
+  loadNextPage() {
+    this.reposService.getRepos(this.currentPage).subscribe(
       (data) => {
-        this.reposList = data;
+        console.log('the data before', data['items']);
+        this.reposList = this.reposList.concat(data.items);
+        console.log('the data after', this.reposList);
       },
-      (error) => {}
+      (error) => {
+        console.log('error', error.status);
+        if (error.status == 403) {
+          this.stopFlag = true;
+        }
+      }
     );
+  }
+
+  onScrollDown(event) {
+    if (event) {
+      if (!this.stopFlag) {
+        this.currentPage = this.currentPage + 1;
+        console.log('scrolled', this.currentPage);
+        this.loadNextPage();
+        setTimeout(() => {}, 100);
+        this.direction = 'down';
+      }
+    }
   }
 }

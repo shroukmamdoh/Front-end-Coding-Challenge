@@ -6,6 +6,7 @@ import { ReposListComponent } from './components/repos-list/repos-list.component
 import { LostComponent } from './components/lost/lost.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './home.routing';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 
@@ -13,7 +14,8 @@ import { routes } from './home.routing';
   declarations: [HomeComponent, ReposListComponent, RepoComponent, LostComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    InfiniteScrollModule
   ],
   exports: [HomeComponent]
 })

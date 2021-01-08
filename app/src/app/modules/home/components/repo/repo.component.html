@@ -1,5 +1,5 @@
 <div class="item" *ngIf="repo">
-  <div class="owner-photo">
+  <div class="owner-photo" *ngIf="repo.owner.avatar_url">
     <img
       [src]="repo.owner.avatar_url"
       alt="Profile photo of the repository owner"

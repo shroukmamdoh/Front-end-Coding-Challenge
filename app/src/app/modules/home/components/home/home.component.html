@@ -1,3 +1,11 @@
-<div class="home-page" *ngIf="reposList">
-  <app-repos-list [reposList]="reposList.items"></app-repos-list>
+<div
+  class="home-page"
+  *ngIf="reposList"
+  infinite-scroll
+  (scrolled)="onScrollDown($event)"
+  [scrollWindow]="true"
+  [alwaysCallback]="true"
+  [ngStyle]="{height: reposList? '100%' : '93.9vh'}"
+>
+  <app-repos-list [reposList]="reposList"></app-repos-list>
 </div>

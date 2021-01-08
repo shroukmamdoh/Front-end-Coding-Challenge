@@ -5,6 +5,7 @@ import { HomeModule } from './modules/home/home.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutes } from '../app/app.routing'
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 @NgModule({
   declarations: [
     AppComponent
@@ -13,6 +14,7 @@ import { AppRoutes } from '../app/app.routing'
     BrowserModule,
     RouterModule.forRoot(AppRoutes),
     HttpClientModule,
+    InfiniteScrollModule,
     HomeModule
   ],
   providers: [],

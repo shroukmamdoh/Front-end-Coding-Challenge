@@ -12,9 +12,13 @@ The app show the most starred Github repos that were created in the last 30 days
   * Number of issues for the repo.
   * Username and avatar of the owner. 
 * As a User I should be able to keep scrolling and new results should appear (pagination).
+* If the user put the wrong URL then it will be direct to the lost page.
 ## Technologies that used
 * Angular 10.1.2
 ## To run the app
+### After cloning the app switch to staging branch
+
+* git checkout staging
 * cd app
 * npm install
 * ng serve

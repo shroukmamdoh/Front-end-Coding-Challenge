@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Repos } from 'src/app/interfaces/repo.interface';
 import { RepService } from '../../services/repo.service';
 
 @Component({
@@ -16,7 +15,6 @@ export class HomeComponent implements OnInit {
   count = 0;
   stopFlag = false;
   constructor(private reposService: RepService) {}
-
   ngOnInit(): void {
     this.loadNextPage();
   }
@@ -24,12 +22,9 @@ export class HomeComponent implements OnInit {
   loadNextPage() {
     this.reposService.getRepos(this.currentPage).subscribe(
       (data) => {
-        console.log('the data before', data['items']);
         this.reposList = this.reposList.concat(data.items);
-        console.log('the data after', this.reposList);
       },
       (error) => {
-        console.log('error', error.status);
         if (error.status == 403) {
           this.stopFlag = true;
         }
@@ -41,7 +36,6 @@ export class HomeComponent implements OnInit {
     if (event) {
       if (!this.stopFlag) {
         this.currentPage = this.currentPage + 1;
-        console.log('scrolled', this.currentPage);
         this.loadNextPage();
         setTimeout(() => {}, 100);
         this.direction = 'down';

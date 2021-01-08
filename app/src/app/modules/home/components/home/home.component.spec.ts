@@ -32,7 +32,7 @@ describe('HomeComponent', () => {
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    component.reposList = TEST_REPO;
+    component.reposList = TEST_REPO.items;
   });
 
   it('should create', () => {
